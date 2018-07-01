@@ -7,5 +7,6 @@ class RepositoriesController < ApplicationController
       req.params['oauth_token'] = session[:token]
     end
     @repos = JSON.parse(resp.body)
+    binding.pry
   end
 end
