@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   skip_before_action :authenticate_user, only: :create
   def create
+    binding.pry
     resp = Faraday.get("https://github.com/oauth/access_token") do |req|
     req.params['client_id'] = ENV['GITHUB_CLIENT_ID']
     req.params['client_secret'] = ENV['GITHUB_SECRET']
