@@ -3,5 +3,8 @@ class RepositoriesController < ApplicationController
   end
 
   def create
+    resp = Faraday.get("https://api.github.com/repos") do |req|
+      req.params['oauth_token'] = session[:token]
+    end
   end
 end
